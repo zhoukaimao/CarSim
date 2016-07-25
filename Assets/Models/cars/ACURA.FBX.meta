@@ -1,0 +1,146 @@
+fileFormatVersion: 2
+guid: b0d53c2d02ab9bf4bad792b225aae4e5
+timeCreated: 1469267390
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: CHESHEN
+    100004: CHESHEN_MeshPart0
+    100006: CHESHEN_MeshPart1
+    100008: CHESHEN_MeshPart2
+    100010: FANGXIANGPAN
+    100012: Object001
+    100014: YOUHOU
+    100016: YOUQIAN
+    100018: YUSHUA1
+    100020: YUSHUA2
+    100022: ZUOHOU
+    100024: ZUOQIANLUN
+    100026: HOUSHIJING
+    100028: YOUSHIJING
+    100030: ZUOSHIJING
+    400000: //RootNode
+    400002: CHESHEN
+    400004: CHESHEN_MeshPart0
+    400006: CHESHEN_MeshPart1
+    400008: CHESHEN_MeshPart2
+    400010: FANGXIANGPAN
+    400012: Object001
+    400014: YOUHOU
+    400016: YOUQIAN
+    400018: YUSHUA1
+    400020: YUSHUA2
+    400022: ZUOHOU
+    400024: ZUOQIANLUN
+    400026: HOUSHIJING
+    400028: YOUSHIJING
+    400030: ZUOSHIJING
+    2300000: CHESHEN_MeshPart0
+    2300002: CHESHEN_MeshPart1
+    2300004: CHESHEN_MeshPart2
+    2300006: FANGXIANGPAN
+    2300008: Object001
+    2300010: YOUHOU
+    2300012: YOUQIAN
+    2300014: YUSHUA1
+    2300016: YUSHUA2
+    2300018: ZUOHOU
+    2300020: ZUOQIANLUN
+    2300022: HOUSHIJING
+    2300024: YOUSHIJING
+    2300026: ZUOSHIJING
+    3300000: CHESHEN_MeshPart0
+    3300002: CHESHEN_MeshPart1
+    3300004: CHESHEN_MeshPart2
+    3300006: FANGXIANGPAN
+    3300008: Object001
+    3300010: YOUHOU
+    3300012: YOUQIAN
+    3300014: YUSHUA1
+    3300016: YUSHUA2
+    3300018: ZUOHOU
+    3300020: ZUOQIANLUN
+    3300022: HOUSHIJING
+    3300024: YOUSHIJING
+    3300026: ZUOSHIJING
+    4300000: CHESHEN_MeshPart0
+    4300002: CHESHEN_MeshPart1
+    4300004: CHESHEN_MeshPart2
+    4300006: YOUQIAN
+    4300008: ZUOQIANLUN
+    4300010: ZUOHOU
+    4300012: YOUHOU
+    4300014: FANGXIANGPAN
+    4300016: Object001
+    4300018: YUSHUA1
+    4300020: YUSHUA2
+    4300022: YOUSHIJING
+    4300024: ZUOSHIJING
+    4300026: HOUSHIJING
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

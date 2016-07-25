@@ -1,0 +1,196 @@
+fileFormatVersion: 2
+guid: ee8ae787ddc3f0b41b23afb8d99c2388
+timeCreated: 1469284732
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: backlght
+    100002: body
+    100004: body_blk
+    100006: glass
+    100008: glassblk
+    100010: headlght
+    100012: headturn
+    100014: //RootNode
+    100016: interior
+    100018: mirror
+    100020: nplate
+    100022: Object001
+    100024: Object002
+    100026: Object003
+    100028: Object004
+    100030: Object015
+    100032: Object017
+    100034: Object018
+    100036: Object019
+    100038: Object020
+    100040: Object021
+    100042: Object022
+    100044: Object023
+    100046: plastic
+    100048: rearlght
+    100050: turnlght
+    400000: backlght
+    400002: body
+    400004: body_blk
+    400006: glass
+    400008: glassblk
+    400010: headlght
+    400012: headturn
+    400014: //RootNode
+    400016: interior
+    400018: mirror
+    400020: nplate
+    400022: Object001
+    400024: Object002
+    400026: Object003
+    400028: Object004
+    400030: Object015
+    400032: Object017
+    400034: Object018
+    400036: Object019
+    400038: Object020
+    400040: Object021
+    400042: Object022
+    400044: Object023
+    400046: plastic
+    400048: rearlght
+    400050: turnlght
+    2300000: backlght
+    2300002: body
+    2300004: body_blk
+    2300006: glass
+    2300008: glassblk
+    2300010: headlght
+    2300012: headturn
+    2300014: interior
+    2300016: nplate
+    2300018: Object001
+    2300020: Object002
+    2300022: Object003
+    2300024: Object004
+    2300026: Object015
+    2300028: Object017
+    2300030: Object018
+    2300032: Object019
+    2300034: Object020
+    2300036: Object021
+    2300038: Object022
+    2300040: Object023
+    2300042: plastic
+    2300044: rearlght
+    2300046: turnlght
+    3300000: backlght
+    3300002: body
+    3300004: body_blk
+    3300006: glass
+    3300008: glassblk
+    3300010: headlght
+    3300012: headturn
+    3300014: interior
+    3300016: nplate
+    3300018: Object001
+    3300020: Object002
+    3300022: Object003
+    3300024: Object004
+    3300026: Object015
+    3300028: Object017
+    3300030: Object018
+    3300032: Object019
+    3300034: Object020
+    3300036: Object021
+    3300038: Object022
+    3300040: Object023
+    3300042: plastic
+    3300044: rearlght
+    3300046: turnlght
+    4300000: backlght
+    4300002: body
+    4300004: body_blk
+    4300006: glass
+    4300008: glassblk
+    4300010: headlght
+    4300012: headturn
+    4300014: interior
+    4300016: nplate
+    4300018: plastic
+    4300020: rearlght
+    4300022: turnlght
+    4300024: Object001
+    4300026: Object002
+    4300028: Object003
+    4300030: Object004
+    4300032: Object015
+    4300034: Object017
+    4300036: Object018
+    4300038: Object019
+    4300040: Object020
+    4300042: Object021
+    4300044: Object022
+    4300046: Object023
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

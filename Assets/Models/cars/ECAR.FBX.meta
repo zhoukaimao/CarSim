@@ -1,0 +1,259 @@
+fileFormatVersion: 2
+guid: 40c8cb331e550f641b7acfca2a29740f
+timeCreated: 1469285283
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: AM98_013_EV_black_plastic
+    100002: AM98_013_EV_black_shiny
+    100004: AM98_013_EV_blinkers
+    100006: AM98_013_EV_bolts fl
+    100008: AM98_013_EV_bolts fr
+    100010: AM98_013_EV_bolts rl
+    100012: AM98_013_EV_bolts rr
+    100014: AM98_013_EV_carpaint
+    100016: AM98_013_EV_carpaint_cap
+    100018: AM98_013_EV_carpaint_doors
+    100020: AM98_013_EV_chrome
+    100022: AM98_013_EV_chrome_squares
+    100024: AM98_013_EV_chrome_stripes
+    100026: AM98_013_EV_front_wipe
+    100028: AM98_013_EV_glass
+    100030: AM98_013_EV_glass_back
+    100032: AM98_013_EV_glass_front
+    100034: AM98_013_EV_glass_sides
+    100036: AM98_013_EV_headlights_2
+    100038: AM98_013_EV_interior
+    100040: AM98_013_EV_mitsu logo fl
+    100042: AM98_013_EV_mitsu logo fr
+    100044: AM98_013_EV_mitsu logo rl
+    100046: AM98_013_EV_mitsu logo rr
+    100048: AM98_013_EV_red_light
+    100050: AM98_013_EV_register_plate
+    100052: AM98_013_EV_rim fl
+    100054: AM98_013_EV_taillight_glass
+    100056: AM98_013_EV_tire fl
+    100058: AM98_013_EV_tire fr
+    100060: AM98_013_EV_tire rl
+    100062: AM98_013_EV_tire rr
+    100064: AM98_013_EV_xenon lens
+    100066: //RootNode
+    100068: Object001
+    100070: Object002
+    100072: Object003
+    100074: Object004
+    400000: AM98_013_EV_black_plastic
+    400002: AM98_013_EV_black_shiny
+    400004: AM98_013_EV_blinkers
+    400006: AM98_013_EV_bolts fl
+    400008: AM98_013_EV_bolts fr
+    400010: AM98_013_EV_bolts rl
+    400012: AM98_013_EV_bolts rr
+    400014: AM98_013_EV_carpaint
+    400016: AM98_013_EV_carpaint_cap
+    400018: AM98_013_EV_carpaint_doors
+    400020: AM98_013_EV_chrome
+    400022: AM98_013_EV_chrome_squares
+    400024: AM98_013_EV_chrome_stripes
+    400026: AM98_013_EV_front_wipe
+    400028: AM98_013_EV_glass
+    400030: AM98_013_EV_glass_back
+    400032: AM98_013_EV_glass_front
+    400034: AM98_013_EV_glass_sides
+    400036: AM98_013_EV_headlights_2
+    400038: AM98_013_EV_interior
+    400040: AM98_013_EV_mitsu logo fl
+    400042: AM98_013_EV_mitsu logo fr
+    400044: AM98_013_EV_mitsu logo rl
+    400046: AM98_013_EV_mitsu logo rr
+    400048: AM98_013_EV_red_light
+    400050: AM98_013_EV_register_plate
+    400052: AM98_013_EV_rim fl
+    400054: AM98_013_EV_taillight_glass
+    400056: AM98_013_EV_tire fl
+    400058: AM98_013_EV_tire fr
+    400060: AM98_013_EV_tire rl
+    400062: AM98_013_EV_tire rr
+    400064: AM98_013_EV_xenon lens
+    400066: //RootNode
+    400068: Object001
+    400070: Object002
+    400072: Object003
+    400074: Object004
+    2300000: AM98_013_EV_black_plastic
+    2300002: AM98_013_EV_black_shiny
+    2300004: AM98_013_EV_blinkers
+    2300006: AM98_013_EV_bolts fl
+    2300008: AM98_013_EV_bolts fr
+    2300010: AM98_013_EV_bolts rl
+    2300012: AM98_013_EV_bolts rr
+    2300014: AM98_013_EV_carpaint
+    2300016: AM98_013_EV_carpaint_cap
+    2300018: AM98_013_EV_carpaint_doors
+    2300020: AM98_013_EV_chrome
+    2300022: AM98_013_EV_chrome_squares
+    2300024: AM98_013_EV_chrome_stripes
+    2300026: AM98_013_EV_front_wipe
+    2300028: AM98_013_EV_glass
+    2300030: AM98_013_EV_glass_back
+    2300032: AM98_013_EV_glass_front
+    2300034: AM98_013_EV_glass_sides
+    2300036: AM98_013_EV_headlights_2
+    2300038: AM98_013_EV_interior
+    2300040: AM98_013_EV_mitsu logo fl
+    2300042: AM98_013_EV_mitsu logo fr
+    2300044: AM98_013_EV_mitsu logo rl
+    2300046: AM98_013_EV_mitsu logo rr
+    2300048: AM98_013_EV_red_light
+    2300050: AM98_013_EV_register_plate
+    2300052: AM98_013_EV_rim fl
+    2300054: AM98_013_EV_taillight_glass
+    2300056: AM98_013_EV_tire fl
+    2300058: AM98_013_EV_tire fr
+    2300060: AM98_013_EV_tire rl
+    2300062: AM98_013_EV_tire rr
+    2300064: AM98_013_EV_xenon lens
+    2300066: Object001
+    2300068: Object002
+    2300070: Object003
+    2300072: Object004
+    3300000: AM98_013_EV_black_plastic
+    3300002: AM98_013_EV_black_shiny
+    3300004: AM98_013_EV_blinkers
+    3300006: AM98_013_EV_bolts fl
+    3300008: AM98_013_EV_bolts fr
+    3300010: AM98_013_EV_bolts rl
+    3300012: AM98_013_EV_bolts rr
+    3300014: AM98_013_EV_carpaint
+    3300016: AM98_013_EV_carpaint_cap
+    3300018: AM98_013_EV_carpaint_doors
+    3300020: AM98_013_EV_chrome
+    3300022: AM98_013_EV_chrome_squares
+    3300024: AM98_013_EV_chrome_stripes
+    3300026: AM98_013_EV_front_wipe
+    3300028: AM98_013_EV_glass
+    3300030: AM98_013_EV_glass_back
+    3300032: AM98_013_EV_glass_front
+    3300034: AM98_013_EV_glass_sides
+    3300036: AM98_013_EV_headlights_2
+    3300038: AM98_013_EV_interior
+    3300040: AM98_013_EV_mitsu logo fl
+    3300042: AM98_013_EV_mitsu logo fr
+    3300044: AM98_013_EV_mitsu logo rl
+    3300046: AM98_013_EV_mitsu logo rr
+    3300048: AM98_013_EV_red_light
+    3300050: AM98_013_EV_register_plate
+    3300052: AM98_013_EV_rim fl
+    3300054: AM98_013_EV_taillight_glass
+    3300056: AM98_013_EV_tire fl
+    3300058: AM98_013_EV_tire fr
+    3300060: AM98_013_EV_tire rl
+    3300062: AM98_013_EV_tire rr
+    3300064: AM98_013_EV_xenon lens
+    3300066: Object001
+    3300068: Object002
+    3300070: Object003
+    3300072: Object004
+    4300000: AM98_013_EV_carpaint_doors
+    4300002: AM98_013_EV_glass
+    4300004: AM98_013_EV_glass_back
+    4300006: AM98_013_EV_glass_sides
+    4300008: AM98_013_EV_glass_front
+    4300010: AM98_013_EV_carpaint
+    4300012: AM98_013_EV_black_plastic
+    4300014: AM98_013_EV_red_light
+    4300016: AM98_013_EV_rim fl
+    4300018: AM98_013_EV_bolts fl
+    4300020: AM98_013_EV_tire fl
+    4300022: AM98_013_EV_bolts rl
+    4300024: AM98_013_EV_tire rl
+    4300026: AM98_013_EV_headlights_2
+    4300028: AM98_013_EV_xenon lens
+    4300030: AM98_013_EV_front_wipe
+    4300032: AM98_013_EV_black_shiny
+    4300034: AM98_013_EV_interior
+    4300036: AM98_013_EV_register_plate
+    4300038: AM98_013_EV_chrome
+    4300040: AM98_013_EV_mitsu logo fl
+    4300042: AM98_013_EV_mitsu logo rl
+    4300044: AM98_013_EV_blinkers
+    4300046: AM98_013_EV_bolts fr
+    4300048: AM98_013_EV_mitsu logo fr
+    4300050: AM98_013_EV_tire fr
+    4300052: AM98_013_EV_mitsu logo rr
+    4300054: AM98_013_EV_bolts rr
+    4300056: AM98_013_EV_tire rr
+    4300058: AM98_013_EV_carpaint_cap
+    4300060: AM98_013_EV_taillight_glass
+    4300062: AM98_013_EV_chrome_squares
+    4300064: AM98_013_EV_chrome_stripes
+    4300066: Object001
+    4300068: Object002
+    4300070: Object003
+    4300072: Object004
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

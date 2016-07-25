@@ -1,0 +1,130 @@
+fileFormatVersion: 2
+guid: 11d228c3a680ea841bc07f5462931d67
+timeCreated: 1469230613
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: 001xx66
+    100002: "3D\u6E9C\u6E9C\u7F51-\u6A21\u578B\u4E0D\u96BE\u627E"
+    100004: iTrees-02-Aspen_04
+    100006: iTrees-02-Aspen_04_MeshPart0
+    100008: iTrees-02-Aspen_04_MeshPart1
+    100010: iTrees-02-Aspen_04_MeshPart2
+    100012: iTrees-02-Aspen_04_MeshPart3
+    100014: iTrees-02-Aspen_04_MeshPart4
+    100016: iTrees-02-Aspen_04_MeshPart5
+    100018: iTrees-02-Aspen_04_MeshPart6
+    100020: iTrees-02-Aspen_04_MeshPart7
+    100022: iTrees-02-Aspen_04_MeshPart8
+    100024: Object001
+    100026: //RootNode
+    400000: 001xx66
+    400002: "3D\u6E9C\u6E9C\u7F51-\u6A21\u578B\u4E0D\u96BE\u627E"
+    400004: iTrees-02-Aspen_04
+    400006: iTrees-02-Aspen_04_MeshPart0
+    400008: iTrees-02-Aspen_04_MeshPart1
+    400010: iTrees-02-Aspen_04_MeshPart2
+    400012: iTrees-02-Aspen_04_MeshPart3
+    400014: iTrees-02-Aspen_04_MeshPart4
+    400016: iTrees-02-Aspen_04_MeshPart5
+    400018: iTrees-02-Aspen_04_MeshPart6
+    400020: iTrees-02-Aspen_04_MeshPart7
+    400022: iTrees-02-Aspen_04_MeshPart8
+    400024: Object001
+    400026: //RootNode
+    2300000: iTrees-02-Aspen_04_MeshPart0
+    2300002: iTrees-02-Aspen_04_MeshPart1
+    2300004: iTrees-02-Aspen_04_MeshPart2
+    2300006: iTrees-02-Aspen_04_MeshPart3
+    2300008: iTrees-02-Aspen_04_MeshPart4
+    2300010: iTrees-02-Aspen_04_MeshPart5
+    2300012: iTrees-02-Aspen_04_MeshPart6
+    2300014: iTrees-02-Aspen_04_MeshPart7
+    2300016: iTrees-02-Aspen_04_MeshPart8
+    2300018: Object001
+    3300000: iTrees-02-Aspen_04_MeshPart0
+    3300002: iTrees-02-Aspen_04_MeshPart1
+    3300004: iTrees-02-Aspen_04_MeshPart2
+    3300006: iTrees-02-Aspen_04_MeshPart3
+    3300008: iTrees-02-Aspen_04_MeshPart4
+    3300010: iTrees-02-Aspen_04_MeshPart5
+    3300012: iTrees-02-Aspen_04_MeshPart6
+    3300014: iTrees-02-Aspen_04_MeshPart7
+    3300016: iTrees-02-Aspen_04_MeshPart8
+    3300018: Object001
+    4300000: iTrees-02-Aspen_04_MeshPart0
+    4300002: iTrees-02-Aspen_04_MeshPart1
+    4300004: iTrees-02-Aspen_04_MeshPart2
+    4300006: iTrees-02-Aspen_04_MeshPart3
+    4300008: iTrees-02-Aspen_04_MeshPart4
+    4300010: iTrees-02-Aspen_04_MeshPart5
+    4300012: iTrees-02-Aspen_04_MeshPart6
+    4300014: iTrees-02-Aspen_04_MeshPart7
+    4300016: iTrees-02-Aspen_04_MeshPart8
+    4300018: Object001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

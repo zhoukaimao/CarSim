@@ -1,0 +1,184 @@
+fileFormatVersion: 2
+guid: 234c8bf79f0632d47a14cbb647ca551b
+timeCreated: 1469285906
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: backlght
+    100002: black
+    100004: body
+    100006: body_blk
+    100008: //RootNode
+    100010: chrome
+    100012: glass
+    100014: glassblk
+    100016: headlght
+    100018: interior
+    100020: mirror
+    100022: nplate
+    100024: Object001
+    100026: Object002
+    100028: Object003
+    100030: Object004
+    100032: Object005
+    100034: Object006
+    100036: plastic
+    100038: rearlght
+    100040: text
+    100042: turnlght
+    100044: tyre
+    400000: backlght
+    400002: black
+    400004: body
+    400006: body_blk
+    400008: //RootNode
+    400010: chrome
+    400012: glass
+    400014: glassblk
+    400016: headlght
+    400018: interior
+    400020: mirror
+    400022: nplate
+    400024: Object001
+    400026: Object002
+    400028: Object003
+    400030: Object004
+    400032: Object005
+    400034: Object006
+    400036: plastic
+    400038: rearlght
+    400040: text
+    400042: turnlght
+    400044: tyre
+    2300000: backlght
+    2300002: black
+    2300004: body
+    2300006: body_blk
+    2300008: chrome
+    2300010: glass
+    2300012: glassblk
+    2300014: headlght
+    2300016: interior
+    2300018: mirror
+    2300020: nplate
+    2300022: Object001
+    2300024: Object002
+    2300026: Object003
+    2300028: Object004
+    2300030: Object005
+    2300032: Object006
+    2300034: plastic
+    2300036: rearlght
+    2300038: text
+    2300040: turnlght
+    2300042: tyre
+    3300000: backlght
+    3300002: black
+    3300004: body
+    3300006: body_blk
+    3300008: chrome
+    3300010: glass
+    3300012: glassblk
+    3300014: headlght
+    3300016: interior
+    3300018: mirror
+    3300020: nplate
+    3300022: Object001
+    3300024: Object002
+    3300026: Object003
+    3300028: Object004
+    3300030: Object005
+    3300032: Object006
+    3300034: plastic
+    3300036: rearlght
+    3300038: text
+    3300040: turnlght
+    3300042: tyre
+    4300000: backlght
+    4300002: black
+    4300004: body
+    4300006: body_blk
+    4300008: chrome
+    4300010: glass
+    4300012: glassblk
+    4300014: headlght
+    4300016: interior
+    4300018: mirror
+    4300020: nplate
+    4300022: plastic
+    4300024: rearlght
+    4300026: text
+    4300028: turnlght
+    4300030: tyre
+    4300032: Object001
+    4300034: Object002
+    4300036: Object003
+    4300038: Object004
+    4300040: Object005
+    4300042: Object006
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
