@@ -3,9 +3,11 @@ using System.Collections;
 
 public class AudioControl : MonoBehaviour {
     public AudioClip startEngineAudio;
+    public AudioClip idleAudio;
     public AudioClip speedUpAudio;
     public AudioClip drivingInsideAudio;
     public AudioClip drivingOutsideAudio;
+    public AudioClip pullupAudio;
     public AudioClip hornAudio;
     public AudioClip skiddingAudio;
     public AudioClip warningAudio;
@@ -34,6 +36,8 @@ public class AudioControl : MonoBehaviour {
     public void PlayStartEngine()
     {
         audiosrcs[0].PlayOneShot(startEngineAudio);
+        audiosrcs[0].clip = idleAudio;
+        audiosrcs[0].Play(50000);
     }
     public void PlaySpeedUp()
     {
@@ -60,6 +64,10 @@ public class AudioControl : MonoBehaviour {
     public void PlaySkidding()
     {
         audiosrcs[0].PlayOneShot(skiddingAudio);
+    }
+    public void PlayPullup()
+    {
+        audiosrcs[0].PlayOneShot(pullupAudio);
     }
     public void PlayHorn()
     {
