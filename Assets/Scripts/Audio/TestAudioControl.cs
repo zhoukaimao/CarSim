@@ -7,9 +7,9 @@ public class TestAudioControl : MonoBehaviour {
 	void Start () {
         audioControl = GetComponent<AudioControl>();
 	}
-	
 	// Update is called once per frame
 	void Update () {
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             audioControl.PlayHorn();
@@ -18,17 +18,23 @@ public class TestAudioControl : MonoBehaviour {
         {
             audioControl.StopHorn();
         }
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
-        {
-            audioControl.PlayStartEngine();
-        }
+        //if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        //{
+        //    audioControl.PlayStartEngine();
+        //}
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            audioControl.PlayDrivingInside();
+            audioControl.PlaySpeedUp();
         }
         if (Input.GetKeyUp(KeyCode.UpArrow))
         {
+            audioControl.StopSpeedUp();
+            audioControl.PlayDrivingInside();
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
             audioControl.StopDrivingInside();
+            audioControl.PlayPullup();
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
