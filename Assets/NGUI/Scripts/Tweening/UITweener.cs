@@ -1,6 +1,6 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2016 Tasharen Entertainment
+// Copyright © 2011-2014 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
@@ -117,12 +117,10 @@ public abstract class UITweener : MonoBehaviour
 	{
 		get
 		{
-			if (duration == 0f) return 1000f;
-
 			if (mDuration != duration)
 			{
 				mDuration = duration;
-				mAmountPerDelta = Mathf.Abs(1f / duration) * Mathf.Sign(mAmountPerDelta);
+				mAmountPerDelta = Mathf.Abs((duration > 0f) ? 1f / duration : 1000f) * Mathf.Sign(mAmountPerDelta);
 			}
 			return mAmountPerDelta;
 		}
@@ -170,7 +168,6 @@ public abstract class UITweener : MonoBehaviour
 
 		if (!mStarted)
 		{
-			delta = 0;
 			mStarted = true;
 			mStartTime = time + delay;
 		}
@@ -178,7 +175,7 @@ public abstract class UITweener : MonoBehaviour
 		if (time < mStartTime) return;
 
 		// Advance the sampling factor
-		mFactor += (duration == 0f) ? 1f : amountPerDelta * delta;
+		mFactor += amountPerDelta * delta;
 
 		// Loop style simply resets the play factor after it exceeds 1.
 		if (style == Style.Loop)
@@ -209,11 +206,13 @@ public abstract class UITweener : MonoBehaviour
 		{
 			mFactor = Mathf.Clamp01(mFactor);
 			Sample(mFactor, true);
-			enabled = false;
 
-			if (current != this)
+			// Disable this script unless the function calls above changed something
+			if (duration == 0f || (mFactor == 1f && mAmountPerDelta > 0f || mFactor == 0f && mAmountPerDelta < 0f))
+				enabled = false;
+
+			if (current == null)
 			{
-				UITweener before = current;
 				current = this;
 
 				if (onFinished != null)
@@ -237,7 +236,7 @@ public abstract class UITweener : MonoBehaviour
 				if (eventReceiver != null && !string.IsNullOrEmpty(callWhenFinished))
 					eventReceiver.SendMessage(callWhenFinished, this, SendMessageOptions.DontRequireReceiver);
 
-				current = before;
+				current = null;
 			}
 		}
 		else Sample(mFactor, false);
@@ -451,16 +450,7 @@ public abstract class UITweener : MonoBehaviour
 			}
 		}
 
-		if (comp == null)
-		{
-			comp = go.AddComponent<T>();
-
-			if (comp == null)
-			{
-				Debug.LogError("Unable to add " + typeof(T) + " to " + NGUITools.GetHierarchy(go), go);
-				return null;
-			}
-		}
+		if (comp == null) comp = go.AddComponent<T>();
 #endif
 		comp.mStarted = false;
 		comp.duration = duration;

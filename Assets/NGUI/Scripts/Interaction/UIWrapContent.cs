@@ -1,6 +1,6 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2016 Tasharen Entertainment
+// Copyright © 2011-2014 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
@@ -49,24 +49,18 @@ public class UIWrapContent : MonoBehaviour
 	public int maxIndex = 0;
 
 	/// <summary>
-	/// Whether hidden game objects will be ignored for the purpose of calculating bounds.
-	/// </summary>
-
-	public bool hideInactive = false;
-
-	/// <summary>
 	/// Callback that will be called every time an item needs to have its content updated.
 	/// The 'wrapIndex' is the index within the child list, and 'realIndex' is the index using position logic.
 	/// </summary>
 
 	public OnInitializeItem onInitializeItem;
 
-	protected Transform mTrans;
-	protected UIPanel mPanel;
-	protected UIScrollView mScroll;
-	protected bool mHorizontal = false;
-	protected bool mFirstTime = true;
-	protected List<Transform> mChildren = new List<Transform>();
+	Transform mTrans;
+	UIPanel mPanel;
+	UIScrollView mScroll;
+	bool mHorizontal = false;
+	bool mFirstTime = true;
+	List<Transform> mChildren = new List<Transform>();
 
 	/// <summary>
 	/// Initialize everything and register a callback with the UIPanel to be notified when the clipping region moves.
@@ -91,18 +85,14 @@ public class UIWrapContent : MonoBehaviour
 	/// </summary>
 
 	[ContextMenu("Sort Based on Scroll Movement")]
-	public virtual void SortBasedOnScrollMovement ()
+	public void SortBasedOnScrollMovement ()
 	{
 		if (!CacheScrollView()) return;
 
 		// Cache all children and place them in order
 		mChildren.Clear();
 		for (int i = 0; i < mTrans.childCount; ++i)
-		{
-			Transform t = mTrans.GetChild(i);
-			if (hideInactive && !t.gameObject.activeInHierarchy) continue;
-			mChildren.Add(t);
-		}
+			mChildren.Add(mTrans.GetChild(i));
 
 		// Sort the list of children so that they are in order
 		if (mHorizontal) mChildren.Sort(UIGrid.SortHorizontal);
@@ -115,18 +105,14 @@ public class UIWrapContent : MonoBehaviour
 	/// </summary>
 
 	[ContextMenu("Sort Alphabetically")]
-	public virtual void SortAlphabetically ()
+	public void SortAlphabetically ()
 	{
 		if (!CacheScrollView()) return;
 
 		// Cache all children and place them in order
 		mChildren.Clear();
 		for (int i = 0; i < mTrans.childCount; ++i)
-		{
-			Transform t = mTrans.GetChild(i);
-			if (hideInactive && !t.gameObject.activeInHierarchy) continue;
-			mChildren.Add(t);
-		}
+			mChildren.Add(mTrans.GetChild(i));
 
 		// Sort the list of children so that they are in order
 		mChildren.Sort(UIGrid.SortByName);
@@ -153,13 +139,12 @@ public class UIWrapContent : MonoBehaviour
 	/// Helper function that resets the position of all the children.
 	/// </summary>
 
-	protected virtual void ResetChildPositions ()
+	void ResetChildPositions ()
 	{
 		for (int i = 0, imax = mChildren.Count; i < imax; ++i)
 		{
 			Transform t = mChildren[i];
 			t.localPosition = mHorizontal ? new Vector3(i * itemSize, 0f, 0f) : new Vector3(0f, -i * itemSize, 0f);
-			UpdateItem(t, i);
 		}
 	}
 
@@ -167,7 +152,7 @@ public class UIWrapContent : MonoBehaviour
 	/// Wrap all content, repositioning all children as needed.
 	/// </summary>
 
-	public virtual void WrapContent ()
+	public void WrapContent ()
 	{
 		float extents = itemSize * mChildren.Count * 0.5f;
 		Vector3[] corners = mPanel.worldCorners;
@@ -204,6 +189,7 @@ public class UIWrapContent : MonoBehaviour
 					{
 						t.localPosition = pos;
 						UpdateItem(t, i);
+						t.name = realIndex.ToString();
 					}
 					else allWithinRange = false;
 				}
@@ -218,6 +204,7 @@ public class UIWrapContent : MonoBehaviour
 					{
 						t.localPosition = pos;
 						UpdateItem(t, i);
+						t.name = realIndex.ToString();
 					}
 					else allWithinRange = false;
 				}
@@ -252,6 +239,7 @@ public class UIWrapContent : MonoBehaviour
 					{
 						t.localPosition = pos;
 						UpdateItem(t, i);
+						t.name = realIndex.ToString();
 					}
 					else allWithinRange = false;
 				}
@@ -266,6 +254,7 @@ public class UIWrapContent : MonoBehaviour
 					{
 						t.localPosition = pos;
 						UpdateItem(t, i);
+						t.name = realIndex.ToString();
 					}
 					else allWithinRange = false;
 				}
@@ -280,7 +269,6 @@ public class UIWrapContent : MonoBehaviour
 			}
 		}
 		mScroll.restrictWithinPanel = !allWithinRange;
-		mScroll.InvalidateBounds();
 	}
 
 	/// <summary>

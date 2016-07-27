@@ -1,6 +1,6 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2016 Tasharen Entertainment
+// Copyright 漏 2011-2014 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
@@ -119,11 +119,7 @@ public abstract class UIRect : MonoBehaviour
 			if (target != null)
 			{
 				if (rect != null) return rect.GetSides(relativeTo);
-#if UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7
-				if (target.camera != null) return target.camera.GetSides(relativeTo);
-#else
 				if (target.GetComponent<Camera>() != null) return target.GetComponent<Camera>().GetSides(relativeTo);
-#endif
 			}
 			return null;
 		}
@@ -166,27 +162,28 @@ public abstract class UIRect : MonoBehaviour
 
 	public AnchorUpdate updateAnchors = AnchorUpdate.OnUpdate;
 
-	[System.NonSerialized] protected GameObject mGo;
-	[System.NonSerialized] protected Transform mTrans;
-	[System.NonSerialized] protected BetterList<UIRect> mChildren = new BetterList<UIRect>();
-	[System.NonSerialized] protected bool mChanged = true;
-	[System.NonSerialized] protected bool mParentFound = false;
+	protected GameObject mGo;
+	protected Transform mTrans;
+	protected BetterList<UIRect> mChildren = new BetterList<UIRect>();
+	protected bool mChanged = true;
+	protected bool mStarted = false;
+	protected bool mParentFound = false;
+
 	[System.NonSerialized] bool mUpdateAnchors = true;
 	[System.NonSerialized] int mUpdateFrame = -1;
 	[System.NonSerialized] bool mAnchorsCached = false;
-	[System.NonSerialized] UIRoot mRoot;
-	[System.NonSerialized] UIRect mParent;
-	[System.NonSerialized] bool mRootSet = false;
-	[System.NonSerialized] protected Camera mCam;
-
-	// Marking it as NonSerialized will cause widgets to disappear when code recompiles in edit mode
-	protected bool mStarted = false;
 
 	/// <summary>
 	/// Final calculated alpha.
 	/// </summary>
 
-	[System.NonSerialized] public float finalAlpha = 1f;
+	[System.NonSerialized]
+	public float finalAlpha = 1f;
+
+	UIRoot mRoot;
+	UIRect mParent;
+	bool mRootSet = false;
+	protected Camera mCam;
 
 	/// <summary>
 	/// Game object gets cached for speed. Can't simply return 'mGo' set in Awake because this function may be called on a prefab.
@@ -312,11 +309,7 @@ public abstract class UIRect : MonoBehaviour
 		{
 			if (anchorCamera == null) return 0f;
 
-#if UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7
-			if (!mCam.isOrthoGraphic)
-#else
 			if (!mCam.orthographic)
-#endif
 			{
 				Transform t = cachedTransform;
 				Transform ct = mCam.transform;
@@ -374,19 +367,12 @@ public abstract class UIRect : MonoBehaviour
 		if (anchorCamera == null || ac.targetCam == null)
 			return cachedTransform.localPosition;
 
-		Rect rect = ac.targetCam.rect;
-		Vector3 viewPos = ac.targetCam.WorldToViewportPoint(ac.target.position);
-		Vector3 pos = new Vector3((viewPos.x * rect.width) + rect.x, (viewPos.y * rect.height) + rect.y, viewPos.z);
-		pos = mCam.ViewportToWorldPoint(pos);
+		Vector3 pos = mCam.ViewportToWorldPoint(ac.targetCam.WorldToViewportPoint(ac.target.position));
 		if (trans != null) pos = trans.InverseTransformPoint(pos);
 		pos.x = Mathf.Floor(pos.x + 0.5f);
 		pos.y = Mathf.Floor(pos.y + 0.5f);
 		return pos;
 	}
-
-#if UNITY_EDITOR
-	[System.NonSerialized] bool mEnabled = false;
-#endif
 
 	/// <summary>
 	/// Automatically find the parent rectangle.
@@ -394,9 +380,6 @@ public abstract class UIRect : MonoBehaviour
 
 	protected virtual void OnEnable ()
 	{
-#if UNITY_EDITOR
-		mEnabled = true;
-#endif
 		mUpdateFrame = -1;
 		
 		if (updateAnchors == AnchorUpdate.OnEnable)
@@ -426,26 +409,11 @@ public abstract class UIRect : MonoBehaviour
 
 	protected virtual void OnDisable ()
 	{
-#if UNITY_EDITOR
-		mEnabled = false;
-#endif
 		if (mParent) mParent.mChildren.Remove(this);
 		mParent = null;
 		mRoot = null;
 		mRootSet = false;
 		mParentFound = false;
-	}
-
-	/// <summary>
-	/// Reset 'mStarted' as Unity remembers its value. It can't be marked as [NonSerialized] because then
-	/// Unity edit mode stops working properly and code recompile causes widgets to disappear.
-	/// </summary>
-
-	protected virtual void Awake ()
-	{
-		mStarted = false;
-		mGo = gameObject;
-		mTrans = transform;
 	}
 
 	/// <summary>
@@ -481,7 +449,43 @@ public abstract class UIRect : MonoBehaviour
 #else
 			if (updateAnchors == AnchorUpdate.OnUpdate || mUpdateAnchors)
 #endif
-				UpdateAnchorsInternal(frame);
+			{
+				mUpdateFrame = frame;
+				mUpdateAnchors = false;
+
+				bool anchored = false;
+
+				if (leftAnchor.target)
+				{
+					anchored = true;
+					if (leftAnchor.rect != null && leftAnchor.rect.mUpdateFrame != frame)
+						leftAnchor.rect.Update();
+				}
+
+				if (bottomAnchor.target)
+				{
+					anchored = true;
+					if (bottomAnchor.rect != null && bottomAnchor.rect.mUpdateFrame != frame)
+						bottomAnchor.rect.Update();
+				}
+
+				if (rightAnchor.target)
+				{
+					anchored = true;
+					if (rightAnchor.rect != null && rightAnchor.rect.mUpdateFrame != frame)
+						rightAnchor.rect.Update();
+				}
+
+				if (topAnchor.target)
+				{
+					anchored = true;
+					if (topAnchor.rect != null && topAnchor.rect.mUpdateFrame != frame)
+						topAnchor.rect.Update();
+				}
+
+				// Update the dimensions using anchors
+				if (anchored) OnAnchor();
+			}
 
 			// Continue with the update
 			OnUpdate();
@@ -489,61 +493,10 @@ public abstract class UIRect : MonoBehaviour
 	}
 
 	/// <summary>
-	/// Update anchors.
-	/// </summary>
-
-	protected void UpdateAnchorsInternal (int frame)
-	{
-		mUpdateFrame = frame;
-		mUpdateAnchors = false;
-
-		bool anchored = false;
-
-		if (leftAnchor.target)
-		{
-			anchored = true;
-			if (leftAnchor.rect != null && leftAnchor.rect.mUpdateFrame != frame)
-				leftAnchor.rect.Update();
-		}
-
-		if (bottomAnchor.target)
-		{
-			anchored = true;
-			if (bottomAnchor.rect != null && bottomAnchor.rect.mUpdateFrame != frame)
-				bottomAnchor.rect.Update();
-		}
-
-		if (rightAnchor.target)
-		{
-			anchored = true;
-			if (rightAnchor.rect != null && rightAnchor.rect.mUpdateFrame != frame)
-				rightAnchor.rect.Update();
-		}
-
-		if (topAnchor.target)
-		{
-			anchored = true;
-			if (topAnchor.rect != null && topAnchor.rect.mUpdateFrame != frame)
-				topAnchor.rect.Update();
-		}
-
-		// Update the dimensions using anchors
-		if (anchored) OnAnchor();
-	}
-
-	/// <summary>
 	/// Manually update anchored sides.
 	/// </summary>
 
-	public void UpdateAnchors ()
-	{
-		if (isAnchored)
-		{
-			mUpdateFrame = -1;
-			mUpdateAnchors = true;
-			UpdateAnchorsInternal(Time.frameCount);
-		}
-	}
+	public void UpdateAnchors () { if (isAnchored && updateAnchors != AnchorUpdate.OnStart) OnAnchor(); }
 
 	/// <summary>
 	/// Update the dimensions of the rectangle using anchor points.
@@ -613,105 +566,6 @@ public abstract class UIRect : MonoBehaviour
 	}
 
 	/// <summary>
-	/// Anchor this rectangle to the specified transform.
-	/// </summary>
-
-	public void SetAnchor (GameObject go, float left, float bottom, float right, float top)
-	{
-		Transform t = (go != null) ? go.transform : null;
-
-		leftAnchor.target = t;
-		rightAnchor.target = t;
-		topAnchor.target = t;
-		bottomAnchor.target = t;
-
-		leftAnchor.relative = left;
-		rightAnchor.relative = right;
-		bottomAnchor.relative = bottom;
-		topAnchor.relative = top;
-
-		leftAnchor.absolute = 0;
-		rightAnchor.absolute = 0;
-		bottomAnchor.absolute = 0;
-		topAnchor.absolute = 0;
-
-		ResetAnchors();
-		UpdateAnchors();
-	}
-
-	/// <summary>
-	/// Anchor this rectangle to the specified transform.
-	/// </summary>
-
-	public void SetAnchor (GameObject go,
-		float left, int leftOffset,
-		float bottom, int bottomOffset,
-		float right, int rightOffset,
-		float top, int topOffset)
-	{
-		Transform t = (go != null) ? go.transform : null;
-
-		leftAnchor.target = t;
-		rightAnchor.target = t;
-		topAnchor.target = t;
-		bottomAnchor.target = t;
-
-		leftAnchor.relative = left;
-		rightAnchor.relative = right;
-		bottomAnchor.relative = bottom;
-		topAnchor.relative = top;
-
-		leftAnchor.absolute = leftOffset;
-		rightAnchor.absolute = rightOffset;
-		bottomAnchor.absolute = bottomOffset;
-		topAnchor.absolute = topOffset;
-
-		ResetAnchors();
-		UpdateAnchors();
-	}
-
-	/// <summary>
-	/// Anchor this rectangle to the specified transform.
-	/// </summary>
-
-	public void SetAnchor (
-		float left, int leftOffset,
-		float bottom, int bottomOffset,
-		float right, int rightOffset,
-		float top, int topOffset)
-	{
-		Transform t = cachedTransform.parent;
-
-		leftAnchor.target = t;
-		rightAnchor.target = t;
-		topAnchor.target = t;
-		bottomAnchor.target = t;
-
-		leftAnchor.relative = left;
-		rightAnchor.relative = right;
-		bottomAnchor.relative = bottom;
-		topAnchor.relative = top;
-
-		leftAnchor.absolute = leftOffset;
-		rightAnchor.absolute = rightOffset;
-		bottomAnchor.absolute = bottomOffset;
-		topAnchor.absolute = topOffset;
-
-		ResetAnchors();
-		UpdateAnchors();
-	}
-
-	/// <summary>
-	/// Set the rect of the widget to the specified X, Y, width and height, anchored to the top-left corner of the screen.
-	/// Convenience function for those familiar with GUI.Draw.
-	/// </summary>
-
-	public void SetScreenRect (int left, int top, int width, int height)
-	{
-		SetAnchor(0f, left, 1f, -top - height, 0f, left + width, 1f, -top);
-	}
-
-	/// <summary>
 	/// Ensure that all rect references are set correctly on the anchors.
 	/// </summary>
 
@@ -741,7 +595,7 @@ public abstract class UIRect : MonoBehaviour
 	public void ResetAndUpdateAnchors () { ResetAnchors(); UpdateAnchors(); }
 
 	/// <summary>
-	/// Set the rectangle manually. XY is the bottom-left corner.
+	/// Set the rectangle manually.
 	/// </summary>
 
 	public abstract void SetRect (float x, float y, float width, float height);
@@ -801,7 +655,7 @@ public abstract class UIRect : MonoBehaviour
 
 	protected virtual void OnValidate ()
 	{
-		if (mEnabled && NGUITools.GetActive(this))
+		if (NGUITools.GetActive(this))
 		{
 			if (!Application.isPlaying) ResetAnchors();
 			Invalidate(true);

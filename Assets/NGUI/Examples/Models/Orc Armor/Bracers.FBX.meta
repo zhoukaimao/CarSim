@@ -14,7 +14,7 @@ ModelImporter:
     materialName: 0
     materialSearch: 1
   animations:
-    legacyGenerateAnimations: 0
+    legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleRotations: 1
     optimizeGameObjects: 0
@@ -69,7 +69,7 @@ ModelImporter:
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 1
   humanoidOversampling: 1
-  additionalBone: 1
+  additionalBone: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

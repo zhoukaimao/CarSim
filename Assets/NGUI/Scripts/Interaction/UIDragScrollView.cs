@@ -1,6 +1,6 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2016 Tasharen Entertainment
+// Copyright © 2011-2014 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
@@ -65,7 +65,7 @@ public class UIDragScrollView : MonoBehaviour
 		// If the scroll view is on a parent, don't try to remember it (as we want it to be dynamic in case of re-parenting)
 		UIScrollView sv = NGUITools.FindInParents<UIScrollView>(mTrans);
 
-		if (scrollView == null || (mAutoFind && sv != scrollView))
+		if (scrollView == null)
 		{
 			scrollView = sv;
 			mAutoFind = true;
@@ -75,19 +75,6 @@ public class UIDragScrollView : MonoBehaviour
 			mAutoFind = true;
 		}
 		mScroll = scrollView;
-	}
-
-	/// <summary>
-	/// Stop the active dragging operation.
-	/// </summary>
-
-	void OnDisable ()
-	{
-		if (mScroll != null && mScroll.GetComponentInChildren<UIWrapContent>() == null)
-		{
-			mScroll.Press(false);
-			mScroll = null;
-		}
 	}
 
 	/// <summary>
@@ -133,15 +120,5 @@ public class UIDragScrollView : MonoBehaviour
 	{
 		if (scrollView && NGUITools.GetActive(this))
 			scrollView.Scroll(delta);
-	}
-
-	/// <summary>
-	/// Pan the scroll view.
-	/// </summary>
-
-	public void OnPan (Vector2 delta)
-	{
-		if (scrollView && NGUITools.GetActive(this))
-			scrollView.OnPan(delta);
 	}
 }

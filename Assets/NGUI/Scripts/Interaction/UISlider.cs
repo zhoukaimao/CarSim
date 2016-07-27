@@ -1,6 +1,6 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2016 Tasharen Entertainment
+// Copyright 漏 2011-2014 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
@@ -28,21 +28,6 @@ public class UISlider : UIProgressBar
 	[HideInInspector][SerializeField] float rawValue = 1f; // Use 'value'
 	[HideInInspector][SerializeField] Direction direction = Direction.Upgraded; // Use 'fillDirection'
 	[HideInInspector][SerializeField] protected bool mInverted = false;
-
-	/// <summary>
-	/// Whether the collider is enabled and the widget can be interacted with.
-	/// </summary>
-
-	public bool isColliderEnabled
-	{
-		get
-		{
-			Collider c = GetComponent<Collider>();
-			if (c != null) return c.enabled;
-			Collider2D b = GetComponent<Collider2D>();
-			return (b != null && b.enabled);
-		}
-	}
 
 	[System.Obsolete("Use 'value' instead")]
 	public float sliderValue { get { return this.value; } set { this.value = value; } }
@@ -84,21 +69,12 @@ public class UISlider : UIProgressBar
 
 	protected override void OnStart ()
 	{
-#if UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7
-				GameObject bg = (mBG != null && (mBG.collider != null || mBG.GetComponent<Collider2D>() != null)) ? mBG.gameObject : gameObject;
-		UIEventListener bgl = UIEventListener.Get(bg);
-		bgl.onPress += OnPressBackground;
-		bgl.onDrag += OnDragBackground;
-
-		if (thumb != null && (thumb.collider != null || thumb.GetComponent<Collider2D>() != null) && (mFG == null || thumb != mFG.cachedTransform))
-#else
 		GameObject bg = (mBG != null && (mBG.GetComponent<Collider>() != null || mBG.GetComponent<Collider2D>() != null)) ? mBG.gameObject : gameObject;
 		UIEventListener bgl = UIEventListener.Get(bg);
 		bgl.onPress += OnPressBackground;
 		bgl.onDrag += OnDragBackground;
 
 		if (thumb != null && (thumb.GetComponent<Collider>() != null || thumb.GetComponent<Collider2D>() != null) && (mFG == null || thumb != mFG.cachedTransform))
-#endif
 		{
 			UIEventListener fgl = UIEventListener.Get(thumb.gameObject);
 			fgl.onPress += OnPressForeground;
@@ -114,7 +90,7 @@ public class UISlider : UIProgressBar
 	{
 		if (UICamera.currentScheme == UICamera.ControlScheme.Controller) return;
 		mCam = UICamera.currentCamera;
-		value = ScreenToValue(UICamera.lastEventPosition);
+		value = ScreenToValue(UICamera.lastTouchPosition);
 		if (!isPressed && onDragFinished != null) onDragFinished();
 	}
 
@@ -126,7 +102,7 @@ public class UISlider : UIProgressBar
 	{
 		if (UICamera.currentScheme == UICamera.ControlScheme.Controller) return;
 		mCam = UICamera.currentCamera;
-		value = ScreenToValue(UICamera.lastEventPosition);
+		value = ScreenToValue(UICamera.lastTouchPosition);
 	}
 
 	/// <summary>
@@ -141,7 +117,7 @@ public class UISlider : UIProgressBar
 		if (isPressed)
 		{
 			mOffset = (mFG == null) ? 0f :
-				value - ScreenToValue(UICamera.lastEventPosition);
+				value - ScreenToValue(UICamera.lastTouchPosition);
 		}
 		else if (onDragFinished != null) onDragFinished();
 	}
@@ -154,12 +130,29 @@ public class UISlider : UIProgressBar
 	{
 		if (UICamera.currentScheme == UICamera.ControlScheme.Controller) return;
 		mCam = UICamera.currentCamera;
-		value = mOffset + ScreenToValue(UICamera.lastEventPosition);
+		value = mOffset + ScreenToValue(UICamera.lastTouchPosition);
 	}
 
 	/// <summary>
 	/// Watch for key events and adjust the value accordingly.
 	/// </summary>
 
-	public override void OnPan (Vector2 delta) { if (enabled && isColliderEnabled) base.OnPan(delta); }
+	protected void OnKey (KeyCode key)
+	{
+		if (enabled)
+		{
+			float step = (numberOfSteps > 1f) ? 1f / (numberOfSteps - 1) : 0.125f;
+
+			if (fillDirection == FillDirection.LeftToRight || fillDirection == FillDirection.RightToLeft)
+			{
+				if (key == KeyCode.LeftArrow) value = mValue - step;
+				else if (key == KeyCode.RightArrow) value = mValue + step;
+			}
+			else
+			{
+				if (key == KeyCode.DownArrow) value = mValue - step;
+				else if (key == KeyCode.UpArrow) value = mValue + step;
+			}
+		}
+	}
 }

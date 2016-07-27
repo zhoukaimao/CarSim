@@ -1,6 +1,6 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2016 Tasharen Entertainment
+// Copyright © 2011-2014 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
@@ -102,8 +102,6 @@ public class UIDragObject : MonoBehaviour
 			UIWidget w = target.GetComponent<UIWidget>();
 			if (w != null) contentRect = w;
 		}
-
-		mTargetPos = (target != null) ? target.position : Vector3.zero;
 	}
 
 	void OnDisable () { mStarted = false; }
@@ -145,12 +143,6 @@ public class UIDragObject : MonoBehaviour
 
 	void OnPress (bool pressed)
 	{
-		if (UICamera.currentTouchID == -2 || UICamera.currentTouchID == -3) return;
-
-		// Unity's physics seems to break when timescale is not quite zero. Raycasts start to fail completely.
-		float ts = Time.timeScale;
-		if (ts < 0.01f && ts != 0f) return;
-
 		if (enabled && NGUITools.GetActive(gameObject) && target != null)
 		{
 			if (pressed)
@@ -177,7 +169,7 @@ public class UIDragObject : MonoBehaviour
 			else if (mPressed && mTouchID == UICamera.currentTouchID)
 			{
 				mPressed = false;
-
+				
 				if (restrictWithinPanel && dragEffect == DragEffect.MomentumAndSpring)
 				{
 					if (panelRegion.ConstrainTargetToBounds(target, ref mBounds, false))
@@ -249,31 +241,12 @@ public class UIDragObject : MonoBehaviour
 		if (panelRegion != null)
 		{
 			mTargetPos += worldDelta;
-			Transform parent = target.parent;
-			Rigidbody rb = target.GetComponent<Rigidbody>();
+			target.position = mTargetPos;
 
-			if (parent != null)
-			{
-				Vector3 after = parent.worldToLocalMatrix.MultiplyPoint3x4(mTargetPos);
-				after.x = Mathf.Round(after.x);
-				after.y = Mathf.Round(after.y);
-
-				if (rb != null)
-				{
-					// With a lot of colliders under the rigidbody, moving the transform causes some crazy overhead.
-					// Moving the rigidbody is much cheaper, but it does seem to have a side effect of causing
-					// widgets to detect movement relative to the panel, when in fact they should not be moving.
-					// This is why it's best to keep the panel as 'static' if at all possible.
-					after = parent.localToWorldMatrix.MultiplyPoint3x4(after);
-					rb.position = after;
-				}
-				else target.localPosition = after;
-			}
-			else if (rb != null)
-			{
-				rb.position = mTargetPos;
-			}
-			else target.position = mTargetPos;
+			Vector3 after = target.localPosition;
+			after.x = Mathf.Round(after.x);
+			after.y = Mathf.Round(after.y);
+			target.localPosition = after;
 
 			UIScrollView ds = panelRegion.GetComponent<UIScrollView>();
 			if (ds != null) ds.UpdateScrollbars(true);
@@ -296,11 +269,11 @@ public class UIDragObject : MonoBehaviour
 		mMomentum -= mScroll;
 		mScroll = NGUIMath.SpringLerp(mScroll, Vector3.zero, 20f, delta);
 
-		// No momentum? Exit.
-		if (mMomentum.magnitude < 0.0001f) return;
-
 		if (!mPressed)
 		{
+			// No momentum? Exit.
+			if (mMomentum.magnitude < 0.0001f) return;
+
 			// Apply the momentum
 			if (panelRegion == null) FindPanel();
 
@@ -316,14 +289,11 @@ public class UIDragObject : MonoBehaviour
 				}
 				else CancelSpring();
 			}
-
-			// Dampen the momentum
-			NGUIMath.SpringDampen(ref mMomentum, 9f, delta);
-
-			// Cancel all movement (and snap to pixels) at the end
-			if (mMomentum.magnitude < 0.0001f) CancelMovement();
 		}
-		else NGUIMath.SpringDampen(ref mMomentum, 9f, delta);
+		else mTargetPos = (target != null) ? target.position : Vector3.zero;
+
+		// Dampen the momentum
+		NGUIMath.SpringDampen(ref mMomentum, 9f, delta);
 	}
 
 	/// <summary>
@@ -332,14 +302,6 @@ public class UIDragObject : MonoBehaviour
 
 	public void CancelMovement ()
 	{
-		if (target != null)
-		{
-			Vector3 pos = target.localPosition;
-			pos.x = Mathf.RoundToInt(pos.x);
-			pos.y = Mathf.RoundToInt(pos.y);
-			pos.z = Mathf.RoundToInt(pos.z);
-			target.localPosition = pos;
-		}
 		mTargetPos = (target != null) ? target.position : Vector3.zero;
 		mMomentum = Vector3.zero;
 		mScroll = Vector3.zero;

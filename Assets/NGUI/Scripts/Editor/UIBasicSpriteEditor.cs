@@ -1,10 +1,11 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2016 Tasharen Entertainment
+// Copyright © 2011-2014 Tasharen Entertainment
 //----------------------------------------------
 
-using UnityEditor;
 using UnityEngine;
+using UnityEditor;
+using System.Collections.Generic;
 
 /// <summary>
 /// Inspector class used to edit UITextures.
@@ -73,27 +74,15 @@ public class UIBasicSpriteEditor : UIWidgetInspector
 			NGUIEditorTools.DrawProperty("  Center", serializedObject, "centerType");
 			NGUIEditorTools.DrawProperty("Flip", serializedObject, "mFlip");
 		}
-		
-		if (type == UIBasicSprite.Type.Simple || type == UIBasicSprite.Type.Sliced) // Gradients get too complicated for tiled and filled.
-		{
-			GUILayout.BeginHorizontal();
-			SerializedProperty gr = NGUIEditorTools.DrawProperty("Gradient", serializedObject, "mApplyGradient", GUILayout.Width(95f));
 
-			EditorGUI.BeginDisabledGroup(!gr.hasMultipleDifferentValues && !gr.boolValue);
-			{
-				NGUIEditorTools.SetLabelWidth(30f);
-				serializedObject.DrawProperty("mGradientTop", "Top", GUILayout.MinWidth(40f));
-				GUILayout.EndHorizontal();
-				GUILayout.BeginHorizontal();
-				NGUIEditorTools.SetLabelWidth(50f);
-				GUILayout.Space(79f);
+		//GUI.changed = false;
+		//Vector4 draw = EditorGUILayout.Vector4Field("Draw Region", mWidget.drawRegion);
 
-				serializedObject.DrawProperty("mGradientBottom", "Bottom", GUILayout.MinWidth(40f));
-				NGUIEditorTools.SetLabelWidth(80f);
-			}
-			EditorGUI.EndDisabledGroup();
-			GUILayout.EndHorizontal();
-		}
+		//if (GUI.changed)
+		//{
+		//    NGUIEditorTools.RegisterUndo("Draw Region", mWidget);
+		//    mWidget.drawRegion = draw;
+		//}
 		base.DrawCustomProperties();
 	}
 }

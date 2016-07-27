@@ -1,6 +1,6 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2016 Tasharen Entertainment
+// Copyright 漏 2011-2014 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
@@ -69,11 +69,7 @@ public class UIRectEditor : Editor
 	{
 		Transform target = sp.objectReferenceValue as Transform;
 		if (target == null) return null;
-#if UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7
-		return target.camera;
-#else
 		return target.GetComponent<Camera>();
-#endif
 	}
 
 	/// <summary>
@@ -392,7 +388,7 @@ public class UIRectEditor : Editor
 			bool isOutside01 = relative < 0f || relative > 1f;
 
 			// Horizontal slider for relative values, for convenience
-			//EditorGUI.BeginDisabledGroup(isOutside01);
+			EditorGUI.BeginDisabledGroup(isOutside01);
 			{
 				GUILayout.Space(10f);
 				float val = GUILayout.HorizontalSlider(relative, 0f, 1f);
@@ -425,7 +421,7 @@ public class UIRectEditor : Editor
 					rel.floatValue = (size > 0f) ? intVal / size : 0.5f;
 				}
 			}
-			//EditorGUI.EndDisabledGroup();
+			EditorGUI.EndDisabledGroup();
 		}
 
 		// Draw the absolute value
@@ -537,15 +533,9 @@ public class UIRectEditor : Editor
 				anchor.Set(anchor.relative, val);
 			}
 		}
-#if UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7
-		else if (anchor.target.camera != null)
-		{
-			Vector3[] sides = anchor.target.camera.GetSides(parent);
-#else
 		else if (anchor.target.GetComponent<Camera>() != null)
 		{
 			Vector3[] sides = anchor.target.GetComponent<Camera>().GetSides(parent);
-#endif
 			Vector3 side0 = sides[0];
 			Vector3 side1 = sides[2];
 
@@ -622,15 +612,9 @@ public class UIRectEditor : Editor
 				anchor.Set(anchor.relative, val);
 			}
 		}
-#if UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7
-		else if (anchor.target.camera != null)
-		{
-			Vector3[] sides = anchor.target.camera.GetSides(parent);
-#else
 		else if (anchor.target.GetComponent<Camera>() != null)
 		{
 			Vector3[] sides = anchor.target.GetComponent<Camera>().GetSides(parent);
-#endif
 			Vector3 side0 = sides[3];
 			Vector3 side1 = sides[1];
 

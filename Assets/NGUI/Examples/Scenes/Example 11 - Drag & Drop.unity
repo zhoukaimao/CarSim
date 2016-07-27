@@ -218,7 +218,6 @@ MonoBehaviour:
   iOSDragEmulation: 1
   scrollWheelFactor: 1
   momentumAmount: 35
-  dampenStrength: 9
   horizontalScrollBar: {fileID: 0}
   verticalScrollBar: {fileID: 1706457514}
   showScrollBars: 1
@@ -226,7 +225,6 @@ MonoBehaviour:
   contentPivot: 1
   scale: {x: 0, y: 0, z: 0}
   relativePositionOnReset: {x: 0, y: 0}
-  centerOnChild: {fileID: 0}
 --- !u!1 &29
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +381,7 @@ MonoBehaviour:
   animateSmoothly: 1
   hideInactive: 1
   keepWithinPanel: 0
-  sorted: 0
+  sorted: 1
 --- !u!4 &42
 Transform:
   m_ObjectHideFlags: 0
@@ -404,7 +402,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 11}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -658, y: -1, z: 0}
+  m_LocalPosition: {x: -357, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 67}
@@ -459,7 +457,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 26}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: 188.238007, z: 0}
+  m_LocalPosition: {x: 7, y: 249.923096, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 57}
@@ -534,7 +532,7 @@ Transform:
   m_GameObject: {fileID: 35}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00222222228, y: .00222222228, z: .00222222228}
+  m_LocalScale: {x: .00344827585, y: .00344827585, z: .00344827585}
   m_Children:
   - {fileID: 66}
   - {fileID: 848388263}
@@ -800,9 +798,6 @@ MonoBehaviour:
   mGradientBottom: {r: .679104447, g: .679104447, b: .679104447, a: 1}
   mSpacingX: 0
   mSpacingY: 0
-  mUseFloatSpacing: 0
-  mFloatSpacingX: 0
-  mFloatSpacingY: 0
   mShrinkToFit: 0
   mMaxLineWidth: 0
   mMaxLineHeight: 0
@@ -964,12 +959,12 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 3
   mWidth: 135
-  mHeight: 800
+  mHeight: 480
   mDepth: 2
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: .168750003
+  aspectRatio: .337500006
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -995,7 +990,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventType: 0
-  eventsGoToColliders: 0
   eventReceiverMask:
     serializedVersion: 2
     m_Bits: 4294966527
@@ -1007,18 +1001,14 @@ MonoBehaviour:
   useController: 1
   stickyTooltip: 1
   tooltipDelay: 1
-  longPressTooltip: 0
   mouseDragThreshold: 4
   mouseClickThreshold: 10
   touchDragThreshold: 40
   touchClickThreshold: 40
   rangeDistance: -1
-  horizontalAxisName: Horizontal
-  verticalAxisName: Vertical
-  horizontalPanAxisName: 
-  verticalPanAxisName: 
   scrollAxisName: Mouse ScrollWheel
-  commandClick: 1
+  verticalAxisName: Vertical
+  horizontalAxisName: Horizontal
   submitKey0: 13
   submitKey1: 330
   cancelKey0: 27
@@ -1035,7 +1025,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventType: 1
-  eventsGoToColliders: 0
   eventReceiverMask:
     serializedVersion: 2
     m_Bits: 256
@@ -1047,18 +1036,14 @@ MonoBehaviour:
   useController: 1
   stickyTooltip: 1
   tooltipDelay: 1
-  longPressTooltip: 0
   mouseDragThreshold: 4
   mouseClickThreshold: 10
   touchDragThreshold: 40
   touchClickThreshold: 40
   rangeDistance: -1
-  horizontalAxisName: Horizontal
-  verticalAxisName: Vertical
-  horizontalPanAxisName: 
-  verticalPanAxisName: 
   scrollAxisName: Mouse ScrollWheel
-  commandClick: 1
+  verticalAxisName: Vertical
+  horizontalAxisName: Horizontal
   submitKey0: 13
   submitKey1: 330
   cancelKey0: 27
@@ -1075,12 +1060,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scalingStyle: 0
-  manualWidth: 1280
   manualHeight: 720
   minimumHeight: 320
   maximumHeight: 1536
-  fitWidth: 0
-  fitHeight: 1
   adjustByDPI: 0
   shrinkPortraitUI: 0
 --- !u!114 &116
@@ -1117,10 +1099,8 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   anchorOffset: 0
-  softBorderPadding: 1
   renderQueue: 0
   startingRenderQueue: 3000
-  mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 0, w: 0}
@@ -1162,17 +1142,15 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   anchorOffset: 0
-  softBorderPadding: 1
   renderQueue: 0
   startingRenderQueue: 3001
-  mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
-  mClipRange: {x: 50, y: -209, z: 102, w: 774}
+  mClipRange: {x: 50, y: -209, z: 102, w: 454}
   mClipSoftness: {x: 1, y: 10}
   mDepth: 3
   mSortingOrder: 0
-  mClipOffset: {x: 0, y: 21.7619934}
+  mClipOffset: {x: 0, y: -39.9230957}
 --- !u!114 &120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1207,10 +1185,8 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   anchorOffset: 0
-  softBorderPadding: 1
   renderQueue: 0
   startingRenderQueue: 3005
-  mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
   mClipRange: {x: 0, y: 0, z: 0, w: 0}
@@ -1304,7 +1280,6 @@ MonoBehaviour:
   restriction: 1
   cloneOnDrag: 0
   pressAndHoldDelay: 1
-  interactable: 1
   prefab: {fileID: 100000, guid: 8d847f26b6745fb4d9076f59a3cf0151, type: 2}
 --- !u!1 &144824840
 GameObject:
@@ -1443,7 +1418,6 @@ MonoBehaviour:
   restriction: 1
   cloneOnDrag: 0
   pressAndHoldDelay: 1
-  interactable: 1
   prefab: {fileID: 100000, guid: 8d847f26b6745fb4d9076f59a3cf0151, type: 2}
 --- !u!114 &227252776
 MonoBehaviour:
@@ -1592,7 +1566,6 @@ MonoBehaviour:
   restriction: 1
   cloneOnDrag: 0
   pressAndHoldDelay: 1
-  interactable: 1
   prefab: {fileID: 100000, guid: 8d847f26b6745fb4d9076f59a3cf0151, type: 2}
 --- !u!114 &297538264
 MonoBehaviour:
@@ -1723,8 +1696,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 16, y: 767.675659, z: 0}
-  m_Center: {x: 0, y: -.0626678467, z: 0}
+  m_Size: {x: 16, y: 326.820007, z: 0}
+  m_Center: {x: 0, y: -23.3038483, z: 0}
 --- !u!114 &306477866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1783,12 +1756,12 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mWidth: 16
-  mHeight: 768
+  mHeight: 448
   mDepth: 1
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: .020833334
+  aspectRatio: .0434782617
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -2095,12 +2068,12 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 5
   mWidth: 107
-  mHeight: 772
+  mHeight: 452
   mDepth: 3
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: .138601035
+  aspectRatio: .287634403
   mType: 2
   mFillDirection: 4
   mFillAmount: 1
@@ -2173,12 +2146,12 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 3
   mWidth: 107
-  mHeight: 772
+  mHeight: 452
   mDepth: 3
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: .138601035
+  aspectRatio: .287634403
   mType: 2
   mFillDirection: 4
   mFillAmount: 1
@@ -2314,7 +2287,6 @@ MonoBehaviour:
   restriction: 1
   cloneOnDrag: 0
   pressAndHoldDelay: 1
-  interactable: 1
   prefab: {fileID: 100000, guid: 8d847f26b6745fb4d9076f59a3cf0151, type: 2}
 --- !u!114 &650606782
 MonoBehaviour:
@@ -2367,7 +2339,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 710038377}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 690, y: 0, z: 0}
+  m_LocalPosition: {x: 389, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1675588937}
@@ -2385,7 +2357,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 108, y: 800, z: 0}
+  m_Size: {x: 108, y: 480, z: 0}
   m_Center: {x: 54, y: 0, z: 0}
 --- !u!114 &710038380
 MonoBehaviour:
@@ -2418,12 +2390,12 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 3
   mWidth: 108
-  mHeight: 800
+  mHeight: 480
   mDepth: 0
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: .135000005
+  aspectRatio: .270000011
 --- !u!114 &710038381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2571,7 +2543,6 @@ MonoBehaviour:
   restriction: 1
   cloneOnDrag: 0
   pressAndHoldDelay: 1
-  interactable: 1
   prefab: {fileID: 100000, guid: d6b1ee5e07651d74fa5f4b8f8adfbc9b, type: 2}
 --- !u!114 &722266127
 MonoBehaviour:
@@ -2720,7 +2691,6 @@ MonoBehaviour:
   restriction: 1
   cloneOnDrag: 0
   pressAndHoldDelay: 1
-  interactable: 1
   prefab: {fileID: 100000, guid: 8d847f26b6745fb4d9076f59a3cf0151, type: 2}
 --- !u!114 &760194426
 MonoBehaviour:
@@ -2806,7 +2776,6 @@ MonoBehaviour:
   restriction: 1
   cloneOnDrag: 0
   pressAndHoldDelay: 1
-  interactable: 1
   prefab: {fileID: 100000, guid: d6b1ee5e07651d74fa5f4b8f8adfbc9b, type: 2}
 --- !u!114 &818940274
 MonoBehaviour:
@@ -2950,7 +2919,7 @@ MonoBehaviour:
   animateSmoothly: 1
   hideInactive: 1
   keepWithinPanel: 0
-  sorted: 0
+  sorted: 1
 --- !u!1 &848388262
 GameObject:
   m_ObjectHideFlags: 0
@@ -2977,7 +2946,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 848388262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -800, y: 0, z: 0}
+  m_LocalPosition: {x: -499, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1706457510}
@@ -3016,12 +2985,12 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 3
   mWidth: 108
-  mHeight: 800
+  mHeight: 480
   mDepth: 0
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: .135000005
+  aspectRatio: .270000011
 --- !u!65 &848388265
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3032,7 +3001,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 108, y: 800, z: 0}
+  m_Size: {x: 108, y: 480, z: 0}
   m_Center: {x: 54, y: 0, z: 0}
 --- !u!114 &848388267
 MonoBehaviour:
@@ -3181,7 +3150,6 @@ MonoBehaviour:
   restriction: 1
   cloneOnDrag: 0
   pressAndHoldDelay: 1
-  interactable: 1
   prefab: {fileID: 100000, guid: d6b1ee5e07651d74fa5f4b8f8adfbc9b, type: 2}
 --- !u!114 &856643768
 MonoBehaviour:
@@ -3323,7 +3291,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6500002, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: m_Size.y
-      value: 778
+      value: 458
       objectReference: {fileID: 0}
     - target: {fileID: 11400010, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: mHeight
@@ -3331,11 +3299,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6500000, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: m_Size.y
-      value: 767.675659
+      value: 326.820007
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: mHeight
-      value: 768
+      value: 448
       objectReference: {fileID: 0}
     - target: {fileID: 6500002, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: m_Size.x
@@ -3367,7 +3335,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6500000, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: m_Center.y
-      value: -.0626678467
+      value: -23.3038483
       objectReference: {fileID: 0}
     - target: {fileID: 11400010, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: leftAnchor.target
@@ -3411,7 +3379,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: aspectRatio
-      value: .020833334
+      value: .0434782617
       objectReference: {fileID: 0}
     - target: {fileID: 11400010, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: aspectRatio
@@ -3419,23 +3387,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400008, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: mValue
-      value: .693259537
+      value: .69230783
       objectReference: {fileID: 0}
     - target: {fileID: 11400008, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: mSize
-      value: .999572217
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400006, guid: df7390d50d06a4b4b893085286142266, type: 2}
-      propertyPath: disabledColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400006, guid: df7390d50d06a4b4b893085286142266, type: 2}
-      propertyPath: disabledColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400006, guid: df7390d50d06a4b4b893085286142266, type: 2}
-      propertyPath: disabledColor.b
-      value: 1
+      value: .723333359
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df7390d50d06a4b4b893085286142266, type: 2}
@@ -3735,7 +3691,6 @@ MonoBehaviour:
   restriction: 1
   cloneOnDrag: 0
   pressAndHoldDelay: 1
-  interactable: 1
   prefab: {fileID: 100000, guid: d6b1ee5e07651d74fa5f4b8f8adfbc9b, type: 2}
 --- !u!114 &1325024852
 MonoBehaviour:
@@ -3947,7 +3902,6 @@ MonoBehaviour:
   restriction: 1
   cloneOnDrag: 0
   pressAndHoldDelay: 1
-  interactable: 1
   prefab: {fileID: 100000, guid: d6b1ee5e07651d74fa5f4b8f8adfbc9b, type: 2}
 --- !u!114 &1327411870
 MonoBehaviour:
@@ -4089,7 +4043,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6500002, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: m_Size.y
-      value: 778
+      value: 458
       objectReference: {fileID: 0}
     - target: {fileID: 11400010, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: mHeight
@@ -4097,11 +4051,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6500000, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: m_Size.y
-      value: 767.675659
+      value: 326.820007
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: mHeight
-      value: 768
+      value: 448
       objectReference: {fileID: 0}
     - target: {fileID: 6500002, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: m_Size.x
@@ -4137,7 +4091,7 @@ Prefab:
       objectReference: {fileID: 69}
     - target: {fileID: 6500000, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: m_Center.y
-      value: -.0626678467
+      value: -23.3038483
       objectReference: {fileID: 0}
     - target: {fileID: 11400010, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: leftAnchor.target
@@ -4181,27 +4135,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: aspectRatio
-      value: .020833334
+      value: .0434782617
       objectReference: {fileID: 0}
     - target: {fileID: 11400008, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: mValue
-      value: .693259537
+      value: .69230783
       objectReference: {fileID: 0}
     - target: {fileID: 11400008, guid: df7390d50d06a4b4b893085286142266, type: 2}
       propertyPath: mSize
-      value: .999572217
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400006, guid: df7390d50d06a4b4b893085286142266, type: 2}
-      propertyPath: disabledColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400006, guid: df7390d50d06a4b4b893085286142266, type: 2}
-      propertyPath: disabledColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400006, guid: df7390d50d06a4b4b893085286142266, type: 2}
-      propertyPath: disabledColor.b
-      value: 1
+      value: .723333359
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df7390d50d06a4b4b893085286142266, type: 2}
@@ -4338,7 +4280,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1607436409}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: 188.238007, z: 0}
+  m_LocalPosition: {x: 7, y: 249.923096, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 830441778}
@@ -4378,7 +4320,6 @@ MonoBehaviour:
   iOSDragEmulation: 1
   scrollWheelFactor: 1
   momentumAmount: 35
-  dampenStrength: 9
   horizontalScrollBar: {fileID: 0}
   verticalScrollBar: {fileID: 1675588941}
   showScrollBars: 1
@@ -4386,7 +4327,6 @@ MonoBehaviour:
   contentPivot: 1
   scale: {x: 0, y: 0, z: 0}
   relativePositionOnReset: {x: 0, y: 0}
-  centerOnChild: {fileID: 0}
 --- !u!114 &1607436413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4421,17 +4361,15 @@ MonoBehaviour:
   cullWhileDragging: 0
   alwaysOnScreen: 0
   anchorOffset: 0
-  softBorderPadding: 1
   renderQueue: 0
   startingRenderQueue: 3003
-  mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 3
-  mClipRange: {x: 50.000061, y: -209, z: 102, w: 774}
+  mClipRange: {x: 49.9999847, y: -209, z: 101.999969, w: 454}
   mClipSoftness: {x: 1, y: 10}
   mDepth: 4
   mSortingOrder: 0
-  mClipOffset: {x: 0, y: 21.7619934}
+  mClipOffset: {x: 0, y: -39.9230957}
 --- !u!1 &1675588936
 GameObject:
   m_ObjectHideFlags: 0
@@ -4476,7 +4414,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 26, y: 778, z: 0}
+  m_Size: {x: 26, y: 458, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1675588939
 MonoBehaviour:
@@ -4510,7 +4448,7 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mWidth: 26
-  mHeight: 778
+  mHeight: 458
   mDepth: 0
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -4544,7 +4482,7 @@ MonoBehaviour:
   tweenTarget: {fileID: 1675588936}
   hover: {r: .882352948, g: .784313738, b: .588235319, a: 1}
   pressed: {r: .5, g: .5, b: .5, a: 1}
-  disabledColor: {r: 1, g: 1, b: 1, a: 1}
+  disabledColor: {r: .5, g: .5, b: .5, a: 1}
   duration: .200000003
   dragHighlight: 0
   hoverSprite: 
@@ -4570,7 +4508,7 @@ MonoBehaviour:
   thumb: {fileID: 0}
   mBG: {fileID: 1675588939}
   mFG: {fileID: 2069478560}
-  mValue: .693259537
+  mValue: .69230783
   mFill: 3
   numberOfSteps: 0
   onChange: []
@@ -4578,7 +4516,7 @@ MonoBehaviour:
   rawValue: 1
   direction: 2
   mInverted: 0
-  mSize: .999572217
+  mSize: .723333359
   mScroll: .600000024
   mDir: 2
 --- !u!1 &1706457509
@@ -4625,7 +4563,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 26, y: 778, z: 0}
+  m_Size: {x: 26, y: 458, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1706457512
 MonoBehaviour:
@@ -4642,7 +4580,7 @@ MonoBehaviour:
   tweenTarget: {fileID: 1706457509}
   hover: {r: .882352948, g: .784313738, b: .588235319, a: 1}
   pressed: {r: .5, g: .5, b: .5, a: 1}
-  disabledColor: {r: 1, g: 1, b: 1, a: 1}
+  disabledColor: {r: .5, g: .5, b: .5, a: 1}
   duration: .200000003
   dragHighlight: 0
   hoverSprite: 
@@ -4685,7 +4623,7 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mWidth: 26
-  mHeight: 778
+  mHeight: 458
   mDepth: 0
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
@@ -4719,7 +4657,7 @@ MonoBehaviour:
   thumb: {fileID: 0}
   mBG: {fileID: 1706457513}
   mFG: {fileID: 306477867}
-  mValue: .693259537
+  mValue: .69230783
   mFill: 3
   numberOfSteps: 0
   onChange: []
@@ -4727,7 +4665,7 @@ MonoBehaviour:
   rawValue: 1
   direction: 2
   mInverted: 0
-  mSize: .999572217
+  mSize: .723333359
   mScroll: .600000024
   mDir: 2
 --- !u!1 &1727460117
@@ -4817,12 +4755,12 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 3
   mWidth: 135
-  mHeight: 800
+  mHeight: 480
   mDepth: 2
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: .168750003
+  aspectRatio: .337500006
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -4895,7 +4833,6 @@ MonoBehaviour:
   restriction: 1
   cloneOnDrag: 0
   pressAndHoldDelay: 1
-  interactable: 1
   prefab: {fileID: 100000, guid: 8d847f26b6745fb4d9076f59a3cf0151, type: 2}
 --- !u!114 &1771743974
 MonoBehaviour:
@@ -5044,7 +4981,6 @@ MonoBehaviour:
   restriction: 1
   cloneOnDrag: 0
   pressAndHoldDelay: 1
-  interactable: 1
   prefab: {fileID: 100000, guid: d6b1ee5e07651d74fa5f4b8f8adfbc9b, type: 2}
 --- !u!114 &1958127443
 MonoBehaviour:
@@ -5175,8 +5111,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 16, y: 767.675659, z: 0}
-  m_Center: {x: 0, y: -.0626678467, z: 0}
+  m_Size: {x: 16, y: 326.820007, z: 0}
+  m_Center: {x: 0, y: -23.3038483, z: 0}
 --- !u!114 &2069478560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5209,12 +5145,12 @@ MonoBehaviour:
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mWidth: 16
-  mHeight: 768
+  mHeight: 448
   mDepth: 1
   autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: .020833334
+  aspectRatio: .0434782617
   mType: 1
   mFillDirection: 4
   mFillAmount: 1

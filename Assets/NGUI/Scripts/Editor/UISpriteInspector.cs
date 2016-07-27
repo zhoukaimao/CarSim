@@ -1,10 +1,11 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2016 Tasharen Entertainment
+// Copyright © 2011-2014 Tasharen Entertainment
 //----------------------------------------------
 
-using UnityEditor;
 using UnityEngine;
+using UnityEditor;
+using System.Collections.Generic;
 
 /// <summary>
 /// Inspector class used to edit UISprites.
@@ -59,7 +60,7 @@ public class UISpriteInspector : UIBasicSpriteEditor
 			{
 				UIAtlas atl = atlas.objectReferenceValue as UIAtlas;
 				NGUISettings.atlas = atl;
-				if (atl != null) NGUIEditorTools.Select(atl.gameObject);
+				NGUIEditorTools.Select(atl.gameObject);
 			}
 		}
 		GUILayout.EndHorizontal();

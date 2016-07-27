@@ -4,6 +4,7 @@ using UnityEngine;
 /// Attach to a game object to make its position always lag behind its parent as the parent moves.
 /// </summary>
 
+[AddComponentMenu("NGUI/Examples/Lag Position")]
 public class LagPosition : MonoBehaviour
 {
 	public Vector3 speed = new Vector3(10f, 10f, 10f);
@@ -12,7 +13,6 @@ public class LagPosition : MonoBehaviour
 	Transform mTrans;
 	Vector3 mRelative;
 	Vector3 mAbsolute;
-	bool mStarted = false;
 
 	public void OnRepositionEnd ()
 	{
@@ -33,12 +33,9 @@ public class LagPosition : MonoBehaviour
 		}
 	}
 
-	void Awake () { mTrans = transform; }
-	void OnEnable () { if (mStarted) ResetPosition(); }
-	void Start () { mStarted = true; ResetPosition(); }
-
-	public void ResetPosition ()
+	void OnEnable ()
 	{
+		mTrans = transform;
 		mAbsolute = mTrans.position;
 		mRelative = mTrans.localPosition;
 	}

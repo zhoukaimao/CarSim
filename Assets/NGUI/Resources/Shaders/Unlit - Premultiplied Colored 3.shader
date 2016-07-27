@@ -49,7 +49,7 @@ Shader "Hidden/Unlit/Premultiplied Colored 3"
 
 			struct v2f
 			{
-				float4 vertex : SV_POSITION;
+				float4 vertex : POSITION;
 				half4 color : COLOR;
 				float2 texcoord : TEXCOORD0;
 				float4 worldPos : TEXCOORD1;
@@ -76,7 +76,7 @@ Shader "Hidden/Unlit/Premultiplied Colored 3"
 				return o;
 			}
 
-			half4 frag (v2f IN) : SV_Target
+			half4 frag (v2f IN) : COLOR
 			{
 				// First clip region
 				float2 factor = (float2(1.0, 1.0) - abs(IN.worldPos.xy)) * _ClipArgs0.xy;
@@ -100,5 +100,34 @@ Shader "Hidden/Unlit/Premultiplied Colored 3"
 			ENDCG
 		}
 	}
-	Fallback "Unlit/Premultiplied Colored"
+	
+	SubShader
+	{
+		LOD 100
+
+		Tags
+		{
+			"Queue" = "Transparent"
+			"IgnoreProjector" = "True"
+			"RenderType" = "Transparent"
+		}
+		
+		Pass
+		{
+			Cull Off
+			Lighting Off
+			ZWrite Off
+			AlphaTest Off
+			Fog { Mode Off }
+			Offset -1, -1
+			ColorMask RGB
+			Blend One OneMinusSrcAlpha 
+			ColorMaterial AmbientAndDiffuse
+			
+			SetTexture [_MainTex]
+			{
+				Combine Texture * Primary
+			}
+		}
+	}
 }

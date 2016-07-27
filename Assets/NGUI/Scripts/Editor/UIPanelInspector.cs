@@ -1,13 +1,11 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2016 Tasharen Entertainment
+// Copyright 漏 2011-2014 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
-using UnityEditorInternal;
-using System.Reflection;
 
 /// <summary>
 /// Editor class used to view panels.
@@ -73,14 +71,8 @@ public class UIPanelInspector : UIRectEditor
 
 	public void OnSceneGUI ()
 	{
-		if (Selection.objects.Length > 1) return;
-
 		UICamera cam = UICamera.FindCameraForLayer(mPanel.gameObject.layer);
-#if UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7
-		if (cam == null || !cam.cachedCamera.isOrthoGraphic) return;
-#else
 		if (cam == null || !cam.cachedCamera.orthographic) return;
-#endif
 
 		NGUIEditorTools.HideMoveTool(true);
 		if (!UIWidget.showHandles) return;
@@ -460,40 +452,6 @@ public class UIPanelInspector : UIRectEditor
 			EditorUtility.SetDirty(mPanel);
 		}
 
-		// Contributed by Benzino07: http://www.tasharen.com/forum/index.php?topic=6956.15
-		GUILayout.BeginHorizontal();
-		{
-			EditorGUILayout.PrefixLabel("Sorting Layer");
-
-			// Get the names of the Sorting layers
-			System.Type internalEditorUtilityType = typeof(InternalEditorUtility);
-			PropertyInfo sortingLayersProperty = internalEditorUtilityType.GetProperty("sortingLayerNames", BindingFlags.Static | BindingFlags.NonPublic);
-			string[] names = (string[])sortingLayersProperty.GetValue(null, new object[0]);
-
-			int index = 0;
-			if (!string.IsNullOrEmpty(mPanel.sortingLayerName))
-			{
-				for (int i = 0; i < names.Length; i++)
-				{
-					if (mPanel.sortingLayerName == names[i])
-					{
-						index = i;
-						break;
-					}
-				}
-			}
-
-			// Get the selected index and update the panel sorting layer if it has changed
-			int selectedIndex = EditorGUILayout.Popup(index, names);
-
-			if (index != selectedIndex)
-			{
-				mPanel.sortingLayerName = names[selectedIndex];
-				EditorUtility.SetDirty(mPanel);
-			}
-		}
-		GUILayout.EndHorizontal();
-
 		if (mPanel.clipping != UIDrawCall.Clipping.None)
 		{
 			Vector4 range = mPanel.baseClipRegion;
@@ -555,22 +513,6 @@ public class UIPanelInspector : UIRectEditor
 					mPanel.clipSoftness = soft;
 					EditorUtility.SetDirty(mPanel);
 				}
-			}
-			else if (mPanel.clipping == UIDrawCall.Clipping.TextureMask)
-			{
-				NGUIEditorTools.SetLabelWidth(0f);
-				GUILayout.Space(-90f);
-				Texture2D tex = (Texture2D)EditorGUILayout.ObjectField(mPanel.clipTexture,
-					typeof(Texture2D), false, GUILayout.Width(70f), GUILayout.Height(70f));
-				GUILayout.Space(20f);
-
-				if (mPanel.clipTexture != tex)
-				{
-					NGUIEditorTools.RegisterUndo("Clipping Change", mPanel);
-					mPanel.clipTexture = tex;
-					EditorUtility.SetDirty(mPanel);
-				}
-				NGUIEditorTools.SetLabelWidth(80f);
 			}
 		}
 
@@ -661,10 +603,8 @@ public class UIPanelInspector : UIRectEditor
 			GUILayout.EndHorizontal();
 
 			GUILayout.BeginHorizontal();
-			EditorGUI.BeginDisabledGroup(mPanel.GetComponent<UIRoot>() != null);
-			bool off = EditorGUILayout.Toggle("Offset", mPanel.anchorOffset && mPanel.GetComponent<UIRoot>() == null, GUILayout.Width(100f));
+			bool off = EditorGUILayout.Toggle("Offset", mPanel.anchorOffset, GUILayout.Width(100f));
 			GUILayout.Label("Offset anchors by position", GUILayout.MinWidth(20f));
-			EditorGUI.EndDisabledGroup();
 			GUILayout.EndHorizontal();
 
 			if (mPanel.anchorOffset != off)

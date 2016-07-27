@@ -1,6 +1,6 @@
 //----------------------------------------------
 //            NGUI: Next-Gen UI kit
-// Copyright © 2011-2016 Tasharen Entertainment
+// Copyright © 2011-2014 Tasharen Entertainment
 //----------------------------------------------
 
 using UnityEngine;
@@ -82,14 +82,14 @@ public class UICenterOnChild : MonoBehaviour
 				if (mScrollView)
 				{
 					mScrollView.centerOnChild = this;
-					mScrollView.onDragFinished += OnDragFinished;
+					mScrollView.onDragFinished = OnDragFinished;
 				}
 
 				if (mScrollView.horizontalScrollBar != null)
-					mScrollView.horizontalScrollBar.onDragFinished += OnDragFinished;
+					mScrollView.horizontalScrollBar.onDragFinished = OnDragFinished;
 
 				if (mScrollView.verticalScrollBar != null)
-					mScrollView.verticalScrollBar.onDragFinished += OnDragFinished;
+					mScrollView.verticalScrollBar.onDragFinished = OnDragFinished;
 			}
 		}
 		if (mScrollView.panel == null) return;
@@ -109,48 +109,19 @@ public class UICenterOnChild : MonoBehaviour
 		float min = float.MaxValue;
 		Transform closest = null;
 		int index = 0;
-		int ignoredIndex = 0;
-
-		UIGrid grid = GetComponent<UIGrid>();
-		List<Transform> list = null;
 
 		// Determine the closest child
-		if (grid != null)
+		for (int i = 0, imax = trans.childCount; i < imax; ++i)
 		{
-			list = grid.GetChildList();
+			Transform t = trans.GetChild(i);
+			if (!t.gameObject.activeInHierarchy) continue;
+			float sqrDist = Vector3.SqrMagnitude(t.position - pickingPoint);
 
-			for (int i = 0, imax = list.Count, ii = 0; i < imax; ++i)
+			if (sqrDist < min)
 			{
-				Transform t = list[i];
-				if (!t.gameObject.activeInHierarchy) continue;
-				float sqrDist = Vector3.SqrMagnitude(t.position - pickingPoint);
-
-				if (sqrDist < min)
-				{
-					min = sqrDist;
-					closest = t;
-					index = i;
-					ignoredIndex = ii;
-				}
-				++ii;
-			}
-		}
-		else
-		{
-			for (int i = 0, imax = trans.childCount, ii = 0; i < imax; ++i)
-			{
-				Transform t = trans.GetChild(i);
-				if (!t.gameObject.activeInHierarchy) continue;
-				float sqrDist = Vector3.SqrMagnitude(t.position - pickingPoint);
-
-				if (sqrDist < min)
-				{
-					min = sqrDist;
-					closest = t;
-					index = i;
-					ignoredIndex = ii;
-				}
-				++ii;
+				min = sqrDist;
+				closest = t;
+				index = i;
 			}
 		}
 
@@ -158,10 +129,9 @@ public class UICenterOnChild : MonoBehaviour
 		if (nextPageThreshold > 0f && UICamera.currentTouch != null)
 		{
 			// If we're still on the same object
-			if (mCenteredObject != null && mCenteredObject.transform == (list != null ? list[index] : trans.GetChild(index)))
+			if (mCenteredObject != null && mCenteredObject.transform == trans.GetChild(index))
 			{
-				Vector3 totalDelta = UICamera.currentTouch.totalDelta;
-				totalDelta = transform.rotation * totalDelta;
+				Vector2 totalDelta = UICamera.currentTouch.totalDelta;
 
 				float delta = 0f;
 
@@ -186,40 +156,26 @@ public class UICenterOnChild : MonoBehaviour
 
 				if (Mathf.Abs(delta) > nextPageThreshold)
 				{
-					if (delta > nextPageThreshold)
+					UIGrid grid = GetComponent<UIGrid>();
+
+					if (grid != null && grid.sorting != UIGrid.Sorting.None)
 					{
-						// Next page
-						if (list != null)
+						List<Transform> list = grid.GetChildList();
+
+						if (delta > nextPageThreshold)
 						{
-							if (ignoredIndex > 0)
-							{
-								closest = list[ignoredIndex - 1];
-							}
-							else closest = (GetComponent<UIWrapContent>() == null) ? list[0] : list[list.Count - 1];
+							// Next page
+							if (index > 0) closest = list[index - 1];
+							else closest = list[0];
 						}
-						else if (ignoredIndex > 0)
+						else if (delta < -nextPageThreshold)
 						{
-							closest = trans.GetChild(ignoredIndex - 1);
+							// Previous page
+							if (index < list.Count - 1) closest = list[index + 1];
+							else closest = list[list.Count - 1];
 						}
-						else closest = (GetComponent<UIWrapContent>() == null) ? trans.GetChild(0) : trans.GetChild(trans.childCount - 1);
 					}
-					else if (delta < -nextPageThreshold)
-					{
-						// Previous page
-						if (list != null)
-						{
-							if (ignoredIndex < list.Count - 1)
-							{
-								closest = list[ignoredIndex + 1];
-							}
-							else closest = (GetComponent<UIWrapContent>() == null) ? list[list.Count - 1] : list[0];
-						}
-						else if (ignoredIndex < trans.childCount - 1)
-						{
-							closest = trans.GetChild(ignoredIndex + 1);
-						}
-						else closest = (GetComponent<UIWrapContent>() == null) ? trans.GetChild(trans.childCount - 1) : trans.GetChild(0);
-					}
+					else Debug.LogWarning("Next Page Threshold requires a sorted UIGrid in order to work properly", this);
 				}
 			}
 		}
