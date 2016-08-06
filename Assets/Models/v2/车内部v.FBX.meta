@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: 79e532edf5469c14086de3b355775c1b
+timeCreated: 1470403227
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: HDM_01_06_bmw_logo
+    100002: HDM_01_06_center_console
+    100004: HDM_01_06_dashboard_a
+    100006: HDM_01_06_dashboard_b
+    100008: HDM_01_06_dashboard_c
+    100010: HDM_01_06_door_frames
+    100012: HDM_01_06_door_glass
+    100014: HDM_01_06_door_interior
+    100016: HDM_01_06_doors
+    100018: HDM_01_06_front_wipes
+    100020: HDM_01_06_guages
+    100022: HDM_01_06_hood
+    100024: HDM_01_06_interior_covering
+    100026: HDM_01_06_radio
+    100028: HDM_01_06_speedometer
+    100030: HDM_01_06_steering_wheel
+    100032: HDM_01_06_steering_wheel_bmw_logo
+    100034: HDM_01_06_tachometer
+    100036: HDM_01_06_windskield
+    100038: HDM_01_06_wipes_mount
+    100040: //RootNode
+    400000: HDM_01_06_bmw_logo
+    400002: HDM_01_06_center_console
+    400004: HDM_01_06_dashboard_a
+    400006: HDM_01_06_dashboard_b
+    400008: HDM_01_06_dashboard_c
+    400010: HDM_01_06_door_frames
+    400012: HDM_01_06_door_glass
+    400014: HDM_01_06_door_interior
+    400016: HDM_01_06_doors
+    400018: HDM_01_06_front_wipes
+    400020: HDM_01_06_guages
+    400022: HDM_01_06_hood
+    400024: HDM_01_06_interior_covering
+    400026: HDM_01_06_radio
+    400028: HDM_01_06_speedometer
+    400030: HDM_01_06_steering_wheel
+    400032: HDM_01_06_steering_wheel_bmw_logo
+    400034: HDM_01_06_tachometer
+    400036: HDM_01_06_windskield
+    400038: HDM_01_06_wipes_mount
+    400040: //RootNode
+    2300000: HDM_01_06_bmw_logo
+    2300002: HDM_01_06_center_console
+    2300004: HDM_01_06_dashboard_a
+    2300006: HDM_01_06_dashboard_b
+    2300008: HDM_01_06_dashboard_c
+    2300010: HDM_01_06_door_frames
+    2300012: HDM_01_06_door_glass
+    2300014: HDM_01_06_door_interior
+    2300016: HDM_01_06_doors
+    2300018: HDM_01_06_front_wipes
+    2300020: HDM_01_06_guages
+    2300022: HDM_01_06_hood
+    2300024: HDM_01_06_interior_covering
+    2300026: HDM_01_06_radio
+    2300028: HDM_01_06_speedometer
+    2300030: HDM_01_06_steering_wheel
+    2300032: HDM_01_06_steering_wheel_bmw_logo
+    2300034: HDM_01_06_tachometer
+    2300036: HDM_01_06_windskield
+    2300038: HDM_01_06_wipes_mount
+    3300000: HDM_01_06_bmw_logo
+    3300002: HDM_01_06_center_console
+    3300004: HDM_01_06_dashboard_a
+    3300006: HDM_01_06_dashboard_b
+    3300008: HDM_01_06_dashboard_c
+    3300010: HDM_01_06_door_frames
+    3300012: HDM_01_06_door_glass
+    3300014: HDM_01_06_door_interior
+    3300016: HDM_01_06_doors
+    3300018: HDM_01_06_front_wipes
+    3300020: HDM_01_06_guages
+    3300022: HDM_01_06_hood
+    3300024: HDM_01_06_interior_covering
+    3300026: HDM_01_06_radio
+    3300028: HDM_01_06_speedometer
+    3300030: HDM_01_06_steering_wheel
+    3300032: HDM_01_06_steering_wheel_bmw_logo
+    3300034: HDM_01_06_tachometer
+    3300036: HDM_01_06_windskield
+    3300038: HDM_01_06_wipes_mount
+    4300000: HDM_01_06_hood
+    4300002: HDM_01_06_windskield
+    4300004: HDM_01_06_doors
+    4300006: HDM_01_06_door_glass
+    4300008: HDM_01_06_door_frames
+    4300010: HDM_01_06_bmw_logo
+    4300012: HDM_01_06_front_wipes
+    4300014: HDM_01_06_wipes_mount
+    4300016: HDM_01_06_interior_covering
+    4300018: HDM_01_06_dashboard_a
+    4300020: HDM_01_06_dashboard_b
+    4300022: HDM_01_06_dashboard_c
+    4300024: HDM_01_06_center_console
+    4300026: HDM_01_06_steering_wheel
+    4300028: HDM_01_06_steering_wheel_bmw_logo
+    4300030: HDM_01_06_guages
+    4300032: HDM_01_06_speedometer
+    4300034: HDM_01_06_tachometer
+    4300036: HDM_01_06_radio
+    4300038: HDM_01_06_door_interior
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
